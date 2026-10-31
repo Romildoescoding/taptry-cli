@@ -1,0 +1,35 @@
+{
+  "name": "taptry",
+  "version": "0.1.0",
+  "description": "Upload Android apps to TapTry and get a link anyone can run in their browser - CLI, MCP server and GitHub Action.",
+  "keywords": [
+    "android",
+    "apk",
+    "aab",
+    "preview",
+    "ci",
+    "mcp",
+    "github-action"
+  ],
+  "homepage": "https://taptry.in",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "taptry": "bin/taptry.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "action",
+    "action.yml",
+    "README.md",
+    "SKILL.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  }
+}

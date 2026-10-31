@@ -1,0 +1,68 @@
+name: TapTry preview
+description: Upload your Android build to TapTry and comment a link anyone can run in their browser - a preview for every pull request.
+author: TapTry
+branding:
+  icon: smartphone
+  color: gray-dark
+
+inputs:
+  api-key:
+    description: A TapTry API key (Settings > API keys). Store it as a repository secret.
+    required: true
+  file:
+    description: The app file your build produced (.apk, .aab, .apks, .xapk or .apkm). A glob is fine if it matches exactly one file.
+    required: false
+  name:
+    description: App name. Default - from the file name the first time; kept on later pushes.
+    required: false
+  ref:
+    description: Your id for this app. Default - github:<owner/repo>#<PR number> on pull requests, github:<owner/repo>@<branch> otherwise. Same ref = same app and link.
+    required: false
+  visibility:
+    description: public (anyone with the link) or private (only you).
+    required: false
+    default: public
+  wait:
+    description: Wait for the malware scan and checks to finish.
+    required: false
+    default: "true"
+  timeout:
+    description: Seconds to wait for the checks.
+    required: false
+    default: "900"
+  comment:
+    description: On pull requests, keep one comment with the preview link up to date. Needs `pull-requests: write`.
+    required: false
+    default: "true"
+  delete-on-close:
+    description: When the workflow runs for a closed pull request, delete that pull request's preview.
+    required: false
+    default: "true"
+  fail-on-error:
+    description: Fail the step when TapTry refuses the build (malware, not an app, ...).
+    required: false
+    default: "true"
+  github-token:
+    description: Token used to comment on the pull request.
+    required: false
+    default: ${{ github.token }}
+  api-url:
+    description: TapTry API base URL.
+    required: false
+    default: https://api.taptry.in
+
+outputs:
+  url:
+    description: The app's TapTry link.
+  app-id:
+    description: The app's id.
+  slug:
+    description: The app's slug.
+  status:
+    description: CLEAN when ready; PENDING/SCANNING if still checking; otherwise why it can't run.
+  ready:
+    description: '"true" when the link is ready to run.'
+
+runs:
+  using: node24
+  main: action/run.js
