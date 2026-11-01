@@ -137,6 +137,17 @@ claude mcp add taptry -e TAPTRY_API_KEY=tt_your_key -- npx -y taptry mcp
 
 After `taptry login` you can leave out the `env` block.
 
+### Let your assistant test the app on a real device
+
+The MCP server can also run your uploaded app on a cloud Android device and
+let the assistant use it: `start_session`, then `screenshot` (it sees the
+screen) and `get_ui` (the elements, with coordinates), `tap` (by label or
+position), `type_text`, `press_key`, `swipe`, `get_logs` (crashes and
+recent log lines) and `end_session`. So "upload the build, open it, sign up
+with a test account and tell me if anything crashes" works end to end. Each
+session uses one of your runs and ends after 5 minutes without a call; at
+most 2 run at once.
+
 ## API
 
 Everything here wraps TapTry's public HTTP API at

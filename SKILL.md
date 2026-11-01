@@ -50,6 +50,15 @@ The Free plan allows 2 apps. If an upload fails with "plan allows up to N
 apps", use `--ref` with an existing app's ref to replace it, or ask the user
 which app to delete.
 
+## Testing the app on a device (MCP)
+
+With the TapTry MCP server installed (`npx -y taptry mcp`), you can run an
+uploaded app on a cloud Android device and use it: `start_session` (the app
+must be CLEAN), `screenshot` / `get_ui` to see it, `tap` (prefer
+`text: "<label>"` over coordinates), `type_text` into a focused field,
+`press_key` (back, enter, ...), `swipe` to scroll, `get_logs` for crashes,
+and always `end_session` when done. Each session uses one of the user's runs.
+
 ## Pull-request previews
 
 For a preview link on every PR, add the GitHub Action in the package README:

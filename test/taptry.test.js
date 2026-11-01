@@ -147,7 +147,11 @@ test("mcp: initialize, list tools, upload, refuse an unconfirmed delete", async 
   const byId = Object.fromEntries(replies.map((r) => [r.id, r]));
   assert.equal(byId[1].result.protocolVersion, "2025-06-18");
   assert.equal(byId[1].result.serverInfo.name, "taptry");
-  assert.deepEqual(byId[2].result.tools.map((t) => t.name), ["upload_app", "get_status", "get_link", "list_apps", "delete_app"]);
+  assert.deepEqual(byId[2].result.tools.map((t) => t.name), [
+    "upload_app", "get_status", "get_link", "list_apps",
+    "start_session", "screenshot", "get_ui", "tap", "swipe", "type_text", "press_key", "get_logs", "end_session",
+    "delete_app",
+  ]);
   const uploaded = JSON.parse(byId[3].result.content[0].text);
   assert.equal(uploaded.ready, true);
   assert.match(uploaded.url, /^https:\/\/taptry\.test\/app\//);

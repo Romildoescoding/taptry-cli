@@ -2,18 +2,18 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.Romildoescoding/taptry",
   "title": "TapTry",
-  "description": "Upload an Android app (.apk, .aab, .apks, .xapk) and get a link anyone can run in their browser.",
+  "description": "Upload Android apps for a link anyone can run in a browser, and test them on a cloud Android device.",
   "websiteUrl": "https://taptry.in",
   "repository": {
     "url": "https://github.com/Romildoescoding/taptry-cli",
     "source": "github"
   },
-  "version": "1.0.1",
+  "version": "1.1.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "taptry",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "transport": { "type": "stdio" },
       "packageArguments": [{ "type": "positional", "value": "mcp" }],
       "environmentVariables": [
