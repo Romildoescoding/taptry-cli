@@ -85,7 +85,13 @@ function commentBody(app, { sha, fileName }) {
       "### TapTry preview",
       `**[▶ Run ${app.name} in your browser](${app.url})** - no install needed.`,
       "",
-      `Build ${build}${short ? ` from ${short}` : ""}. ${app.visibility === "private" ? "Private: only the uploader can open it." : "Anyone with the link can run it."}`,
+      `Build ${build}${short ? ` from ${short}` : ""}. ${
+        app.visibility === "private"
+          ? "Private: only the uploader can open it."
+          : app.visibility === "unlisted"
+            ? "Unlisted: anyone with this link can run it; it isn't listed anywhere on TapTry."
+            : "Anyone can run it."
+      }`,
     ].join("\n");
   }
   if (!app.done) {
@@ -142,7 +148,7 @@ async function run() {
   const { app: uploaded, created } = await client.upload(file, {
     name: input("name") || undefined,
     ref,
-    visibility: input("visibility", "public"),
+    visibility: input("visibility", "unlisted"),
   });
   log(`${created ? "Created" : "Updated"} ${uploaded.name}: ${uploaded.url}`);
 

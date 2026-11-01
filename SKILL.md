@@ -13,8 +13,9 @@ sets `TAPTRY_API_KEY`.
 ## Before uploading
 
 - **Ask first.** An upload publishes the app under the user's name. Default
-  visibility is public: anyone with the link can run it, and it appears on
-  their TapTry profile. Use `--private` if they want it only for themselves.
+  visibility is public: it appears on their TapTry profile and anyone can run
+  it. To share a build with specific people without listing it, use
+  `--unlisted` (the printed link is a secret link). `--private`: only them.
 - **Find the right file.** Accepted: `.apk`, `.aab`, `.apks`, `.xapk`, `.apkm`,
   up to 500MB. Gradle puts builds under `app/build/outputs/apk/<variant>/`
   (`./gradlew assembleDebug` or `assembleRelease`) and bundles under

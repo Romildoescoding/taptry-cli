@@ -15,7 +15,7 @@ function createFakeServer({ key = "tt_" + "a".repeat(40), scanPolls = 1 } = {}) 
     slug: a.slug,
     name: a.name,
     url: `https://taptry.test/app/${a.slug}`,
-    visibility: a.isPublic ? "public" : "private",
+    visibility: a.visibility,
     status: a.status,
     done: !["PENDING", "SCANNING"].includes(a.status),
     ready: a.status === "CLEAN",
@@ -74,7 +74,7 @@ function createFakeServer({ key = "tt_" + "a".repeat(40), scanPolls = 1 } = {}) 
         return send(200, { app: view(existing), created: false });
       }
       const id = `app${++seq}`;
-      const a = { id, slug: `game-${seq}`, name: field("name") || fileName.replace(/\.\w+$/, ""), isPublic: field("public") !== "false", status, polls: 0, size: raw.length, ref, fileName };
+      const a = { id, slug: `game-${seq}`, name: field("name") || fileName.replace(/\.\w+$/, ""), visibility: field("visibility") || "public", status, polls: 0, size: raw.length, ref, fileName };
       apps.set(id, a);
       return send(201, { app: view(a), created: true });
     }

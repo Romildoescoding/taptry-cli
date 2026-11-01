@@ -55,6 +55,9 @@ test("cli: --json, --ref replaces the same app, --private", async () => {
   const first = JSON.parse((await cli(["upload", apk, "--ref", "ci:main", "--private", "--json"])).stdout);
   assert.equal(first.created, true);
   assert.equal(first.app.visibility, "private");
+  const unlisted = JSON.parse((await cli(["upload", apk, "--unlisted", "--json"])).stdout);
+  assert.equal(unlisted.app.visibility, "unlisted");
+  assert.equal((await cli(["upload", apk, "--unlisted", "--private"])).code, 2, "pick one");
   const second = JSON.parse((await cli(["upload", apk, "--ref", "ci:main", "--json"])).stdout);
   assert.equal(second.created, false);
   assert.equal(second.app.id, first.app.id);
@@ -198,6 +201,8 @@ test("action: a pull request gets one preview and one comment, updated on every 
   assert.equal(prComments.length, 1, "one comment, edited in place");
   assert.match(prComments[0].body, /Run .* in your browser/);
   assert.match(prComments[0].body, /from abcdef1/);
+  assert.equal(previews[0].visibility, "unlisted", "PR previews default to unlisted");
+  assert.match(prComments[0].body, /Unlisted: anyone with this link/);
 });
 
 test("action: closing the pull request deletes its preview", async () => {

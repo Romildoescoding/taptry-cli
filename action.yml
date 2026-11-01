@@ -19,9 +19,9 @@ inputs:
     description: Your id for this app. Default - github:<owner/repo>#<PR number> on pull requests, github:<owner/repo>@<branch> otherwise. Same ref = same app and link.
     required: false
   visibility:
-    description: public (anyone with the link) or private (only you).
+    description: unlisted (anyone with the link, listed nowhere), public (also on your TapTry profile) or private (only you).
     required: false
-    default: public
+    default: unlisted
   wait:
     description: Wait for the malware scan and checks to finish.
     required: false

@@ -26,7 +26,7 @@ is malware-scanned before its link works. Needs Node 20+; no dependencies.
 ## CLI
 
 ```
-taptry upload <file> [--name <name>] [--ref <ref>] [--private] [--no-wait] [--timeout <s>] [--json]
+taptry upload <file> [--name <name>] [--ref <ref>] [--unlisted | --private] [--no-wait] [--timeout <s>] [--json]
 taptry status <app> | --ref <ref>
 taptry list [--ref <ref>]
 taptry delete <app> | --ref <ref> [--yes]
@@ -37,8 +37,9 @@ taptry mcp
 - **`--ref`** is your own id for an app, e.g. `github:me/game#42`. Uploading
   again with the same ref **replaces that app's file and keeps its link** -
   use it for anything you upload repeatedly.
-- **`--private`**: only you can open it. Default: anyone with the link (it
-  also shows on your TapTry profile).
+- **Visibility:** public by default (on your TapTry profile, anyone can
+  run it). **`--unlisted`**: listed nowhere, and the link printed is a secret
+  link only the people you send it to can open. **`--private`**: only you.
 - `upload` waits for the checks by default and prints the link on stdout,
   so `URL=$(taptry upload app.apk)` works. `--json` prints the whole result.
 - `delete` asks first; without a terminal it needs `--yes`.
@@ -50,7 +51,9 @@ waiting for the checks.
 ## GitHub Action: a preview link on every pull request
 
 Each pull request gets one TapTry app and one comment with its link, updated
-on every push and deleted when the PR closes.
+on every push and deleted when the PR closes. Previews are **unlisted** by
+default: anyone with the link in the PR can run them, and they never show up
+on your TapTry profile.
 
 ```yaml
 # .github/workflows/taptry-preview.yml
@@ -77,7 +80,7 @@ jobs:
       - name: Build
         if: github.event.action != 'closed'
         run: ./gradlew assembleDebug
-      - uses: TAPTRY_ORG/taptry@v1
+      - uses: Romildoescoding/taptry-cli@v1
         with:
           api-key: ${{ secrets.TAPTRY_API_KEY }}
           file: app/build/outputs/apk/debug/app-debug.apk
@@ -92,7 +95,7 @@ forks don't get secrets, so their previews are skipped with a warning.
 | `file` | - | The build output. A glob is fine if it matches exactly one file. |
 | `name` | from the file | App name, set on the first upload. |
 | `ref` | `github:<repo>#<PR>` or `github:<repo>@<branch>` | Same ref, same app. |
-| `visibility` | `public` | `public` or `private`. |
+| `visibility` | `unlisted` | `unlisted` (anyone with the link, listed nowhere), `public` or `private`. |
 | `wait` / `timeout` | `true` / `900` | Wait for the checks. |
 | `comment` | `true` | Keep one PR comment up to date. |
 | `delete-on-close` | `true` | Delete the preview when the PR closes. |
