@@ -1,0 +1,11 @@
+{
+  "name": "taptry",
+  "owner": { "name": "TapTry", "url": "https://taptry.in" },
+  "plugins": [
+    {
+      "name": "taptry",
+      "source": "./",
+      "description": "Share Android builds as a browser link, and let Claude test them on a cloud Android device."
+    }
+  ]
+}

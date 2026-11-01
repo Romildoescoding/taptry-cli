@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "taptry": {
+      "command": "npx",
+      "args": ["-y", "taptry@latest", "mcp"],
+      "env": {
+        "TAPTRY_API_KEY": "${TAPTRY_API_KEY}"
+      }
+    }
+  }
+}

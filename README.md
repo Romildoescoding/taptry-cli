@@ -137,6 +137,13 @@ claude mcp add taptry -e TAPTRY_API_KEY=tt_your_key -- npx -y taptry mcp
 
 After `taptry login` you can leave out the `env` block.
 
+**Claude Code plugin** - the MCP server and the TapTry skill in one install (set `TAPTRY_API_KEY` in your environment first):
+
+```
+/plugin marketplace add Romildoescoding/taptry-cli
+/plugin install taptry@taptry
+```
+
 ### Let your assistant test the app on a real device
 
 The MCP server can also run your uploaded app on a cloud Android device and

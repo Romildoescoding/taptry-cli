@@ -33,9 +33,11 @@
     "action",
     "action.yml",
     "README.md",
-    "SKILL.md",
     "LICENSE",
-    "server.json"
+    "server.json",
+    "skills",
+    ".mcp.json",
+    ".claude-plugin"
   ],
   "engines": {
     "node": ">=20"

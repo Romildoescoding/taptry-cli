@@ -1,6 +1,6 @@
 ---
 name: taptry
-description: Share an Android app build as a link anyone can run in their browser (no install) by uploading it to TapTry with the `taptry` CLI. Use when the user wants to share, demo, preview or send an Android app/APK/AAB to someone, get a "try it" link for a build, or set up preview links for pull requests.
+description: Share an Android app build as a link anyone can run in their browser, and test Android apps on a real cloud device (screenshots, taps, typing, crash logs) - with the TapTry CLI and MCP server. Use when the user wants to share, demo, preview or send an Android app/APK/AAB, get a "try it" link for a build, set up preview links for pull requests, or check that an Android app they built actually runs - that a screen works, a flow completes or nothing crashes.
 ---
 
 # TapTry: share an Android build as a link

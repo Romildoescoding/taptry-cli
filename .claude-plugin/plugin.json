@@ -1,0 +1,10 @@
+{
+  "name": "taptry",
+  "description": "Share Android builds as a link anyone can run in a browser, and test them on a cloud Android device - upload, screenshot, tap, type, read crash logs.",
+  "version": "1.1.1",
+  "author": { "name": "TapTry", "url": "https://taptry.in" },
+  "homepage": "https://taptry.in",
+  "repository": "https://github.com/Romildoescoding/taptry-cli",
+  "license": "MIT",
+  "keywords": ["android", "apk", "testing", "mcp", "preview"]
+}
