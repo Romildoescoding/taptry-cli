@@ -155,6 +155,15 @@ with a test account and tell me if anything crashes" works end to end. Each
 session uses one of your runs and ends after 5 minutes without a call; at
 most 2 run at once.
 
+## Data and privacy
+
+Everything here talks to one service: the TapTry API at `https://api.taptry.in`, using your API key.
+
+- **Sent to TapTry:** app files you upload (`.apk`, `.aab`, `.apks`, `.xapk`, `.apkm`), the app name and settings you give, and - in device sessions - the taps, swipes, keys and text you send to your app.
+- **Read from TapTry:** your account name and plan (`whoami`), your apps and their status, and in device sessions the screenshots, on-screen elements and logs of your own app. Screenshots and logs can contain whatever your app displays or logs.
+- **Kept by TapTry:** uploaded apps until you delete them (`taptry delete`, or in the web app); run counts and analytics for your apps. Device-session screenshots, UI reads and logs are returned to you and not stored. Uploaded files are malware-scanned by VirusTotal. See https://taptry.in/privacy-policy.
+- **Stored locally:** `taptry login` saves your API key in your user config folder (mode 0600). Nothing else is written.
+
 ## API
 
 Everything here wraps TapTry's public HTTP API at
