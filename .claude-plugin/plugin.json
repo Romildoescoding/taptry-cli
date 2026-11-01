@@ -2,9 +2,28 @@
   "name": "taptry",
   "description": "Share Android builds as a link anyone can run in a browser, and test them on a cloud Android device - upload, screenshot, tap, type, read crash logs.",
   "version": "1.1.1",
-  "author": { "name": "TapTry", "url": "https://taptry.in" },
+  "author": {
+    "name": "TapTry",
+    "url": "https://taptry.in"
+  },
   "homepage": "https://taptry.in",
   "repository": "https://github.com/Romildoescoding/taptry-cli",
   "license": "MIT",
-  "keywords": ["android", "apk", "testing", "mcp", "preview"]
+  "keywords": [
+    "android",
+    "apk",
+    "testing",
+    "mcp",
+    "preview"
+  ],
+  "icon": ".claude-plugin/icon.png",
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "TapTry API key",
+      "description": "Create one at https://taptry.in/settings/api-keys (starts with tt_).",
+      "sensitive": true,
+      "required": true
+    }
+  }
 }
