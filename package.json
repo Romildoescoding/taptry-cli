@@ -1,6 +1,7 @@
 {
   "name": "taptry",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "mcpName": "io.github.Romildoescoding/taptry",
   "description": "Upload Android apps to TapTry and get a link anyone can run in their browser - CLI, MCP server and GitHub Action.",
   "keywords": [
     "android",
@@ -9,7 +10,16 @@
     "preview",
     "ci",
     "mcp",
-    "github-action"
+    "github-action",
+    "mcp-server",
+    "model-context-protocol",
+    "claude",
+    "claude-code",
+    "cursor",
+    "android-emulator",
+    "app-preview",
+    "pull-request-preview",
+    "browser"
   ],
   "homepage": "https://taptry.in",
   "license": "MIT",
@@ -24,12 +34,20 @@
     "action.yml",
     "README.md",
     "SKILL.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "test": "node --test \"test/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Romildoescoding/taptry-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Romildoescoding/taptry-cli/issues"
   }
 }
