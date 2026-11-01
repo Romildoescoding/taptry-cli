@@ -232,3 +232,11 @@ test("action: refused build fails the step; fork PRs without a key are skipped",
   assert.equal(ambiguous.code, 1);
   assert.match(ambiguous.stdout, /matches 2 files/);
 });
+
+test("action.yml: every description is quoted (an unquoted ': ' is a YAML error that breaks the Action)", () => {
+  const yml = fs.readFileSync(path.join(__dirname, "..", "action.yml"), "utf8");
+  const bad = yml.split("\n").filter((l) => /^\s*description: /.test(l) && !/^\s*description: ["']/.test(l));
+  assert.deepEqual(bad, []);
+  assert.match(yml, /^name: /m);
+  assert.match(yml, /^ {2}using: node\d+$/m);
+});
