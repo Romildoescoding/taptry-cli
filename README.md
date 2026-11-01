@@ -161,7 +161,7 @@ Everything here talks to one service: the TapTry API at `https://api.taptry.in`,
 
 - **Sent to TapTry:** app files you upload (`.apk`, `.aab`, `.apks`, `.xapk`, `.apkm`), the app name and settings you give, and - in device sessions - the taps, swipes, keys and text you send to your app.
 - **Read from TapTry:** your account name and plan (`whoami`), your apps and their status, and in device sessions the screenshots, on-screen elements and logs of your own app. Screenshots and logs can contain whatever your app displays or logs.
-- **Kept by TapTry:** uploaded apps until you delete them (`taptry delete`, or in the web app); run counts and analytics for your apps. Device-session screenshots, UI reads and logs are returned to you and not stored. Uploaded files are malware-scanned by VirusTotal. See https://taptry.in/privacy-policy.
+- **Kept by TapTry:** uploaded apps until you delete them (`taptry delete`, or in the web app); run counts and analytics for your apps. Device-session screenshots, UI reads and logs are returned to you and not stored. Uploaded files are malware-scanned by VirusTotal. [Privacy policy](https://taptry.in/privacy-policy) · [Terms](https://taptry.in/terms-and-conditions).
 - **Stored locally:** `taptry login` saves your API key in your user config folder (mode 0600). Nothing else is written.
 
 ## API

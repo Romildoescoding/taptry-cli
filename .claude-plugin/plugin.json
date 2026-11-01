@@ -25,5 +25,7 @@
       "sensitive": true,
       "required": true
     }
-  }
+  },
+  "privacyPolicyUrl": "https://taptry.in/privacy-policy",
+  "termsOfServiceUrl": "https://taptry.in/terms-and-conditions"
 }
